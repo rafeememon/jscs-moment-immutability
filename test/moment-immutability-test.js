@@ -58,4 +58,20 @@ describe('moment-immutability', function () {
   it('should not report for multiple mutators with a clone', function () {
     expectErrors(0, checker.checkString('m.clone().year(2016).month(0)'))
   })
+
+  it('should report for adding time units', function () {
+    expectErrors(1, checker.checkString('m.add(1, "day")'))
+  })
+
+  it('should not report for adding non-time units', function () {
+    expectErrors(0, checker.checkString('m.add(1, "problem")'))
+  })
+
+  it('should not report for adding time units with a clone', function () {
+    expectErrors(0, checker.checkString('m.clone().add(1, "day")'))
+  })
+
+  it('should not report for a standalone adding time units', function () {
+    expectErrors(0, checker.checkString('add(1, "day")'))
+  })
 })
