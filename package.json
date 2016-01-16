@@ -1,6 +1,6 @@
 {
   "name": "jscs-moment-immutability",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "JSCS rule to enforce immutability of moment.js objects",
   "author": {
     "name": "Rafee Memon",
