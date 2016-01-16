@@ -90,4 +90,8 @@ describe('moment-immutability', function () {
   it('should not report for a standalone adding time units', function () {
     expectErrors(0, checker.checkString('set("year", 2016)'))
   })
+
+  it('should not report for a mutator with a constructor', function () {
+    expectErrors(0, checker.checkString('moment(m).year(2016)'))
+  })
 })
