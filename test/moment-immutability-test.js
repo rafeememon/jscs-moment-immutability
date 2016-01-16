@@ -74,4 +74,20 @@ describe('moment-immutability', function () {
   it('should not report for a standalone adding time units', function () {
     expectErrors(0, checker.checkString('add(1, "day")'))
   })
+
+  it('should report for setting time units', function () {
+    expectErrors(1, checker.checkString('m.set("year", 2016)'))
+  })
+
+  it('should not report for adding non-time units', function () {
+    expectErrors(0, checker.checkString('m.set("problems", 99)'))
+  })
+
+  it('should not report for adding time units with a clone', function () {
+    expectErrors(0, checker.checkString('m.clone().set("year", 2016)'))
+  })
+
+  it('should not report for a standalone adding time units', function () {
+    expectErrors(0, checker.checkString('set("year", 2016)'))
+  })
 })
